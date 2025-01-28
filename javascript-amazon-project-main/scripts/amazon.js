@@ -1,3 +1,4 @@
+import {cart} from "../data/cart.js";  // import the products array from the products.js file
 
 let productsHtml = '';  // create an empty string to store the html for each product
 products.forEach((product)=>{
@@ -86,7 +87,5 @@ document.querySelectorAll(".js-add-to-cart")
         cartQuantity += item.quantity;
       })
       document.querySelector(".js-cart-quantity").textContent = cartQuantity;  // update the cart quantity in the header
-      console.log(cartQuantity);  // log the cartQuantity to the console
-      console.log(cart);  // log the cart to the console
     });
   });
