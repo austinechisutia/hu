@@ -1,5 +1,6 @@
-import {cart} from "../data/cart.js";  // import the products array from the products.js file
+import {cart, addToCart} from "../data/cart.js";  // import the products array from the products.js file
 import {products} from "../data/products.js";  // import the products array from the products.js file
+
 
 let productsHtml = '';  // create an empty string to store the html for each product
 products.forEach((product)=>{
@@ -60,33 +61,24 @@ products.forEach((product)=>{
 
 document.querySelector(".js-products-grid").innerHTML = productsHtml;  // add the productsHtml to the products container
 
-document.querySelectorAll(".js-add-to-cart")
-  .forEach((button)=>{
-    button.addEventListener("click", ()=>{
-      const productId = button.dataset.productId;
 
-
-      let martchingItem;
-      cart.forEach((item)=>{
-        if(productId === item.productId){
-          martchingItem = item;
-        }  // check if the product is already in the cart and return
-      });
-
-      if(martchingItem){
-        martchingItem.quantity += 1;
-      }else{
-        cart.push({
-          productId,
-          quantity: 1
-        });
-      }
-
-       // add the product to the cart
-      let cartQuantity = 0;  // create a variable to store the total quantity of products in the cart
+function updateCartQuantity(){
+  let cartQuantity = 0;  // create a variable to store the total quantity of products in the cart
       cart.forEach((item)=>{
         cartQuantity += item.quantity;
       })
       document.querySelector(".js-cart-quantity").textContent = cartQuantity;  // update the cart quantity in the header
+}
+
+document.querySelectorAll(".js-add-to-cart")
+  .forEach((button)=>{
+    button.addEventListener("click", ()=>{
+      const productId = button.dataset.productId;
+      
+      addToCart(productId);
+
+      updateCartQuantity();
+
+      
     });
   });
