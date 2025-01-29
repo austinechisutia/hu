@@ -1,8 +1,8 @@
 export const cart = [{
-    productIdd: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+    productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
     quantity: 1
 }, {
-    productId: "f8a3b6e7-9a6f-4f9b-8e4c-1e2b3d7f1f0c",
+    productId: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
     quantity: 2
 }];
 
